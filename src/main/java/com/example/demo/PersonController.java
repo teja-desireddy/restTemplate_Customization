@@ -17,14 +17,14 @@ public class PersonController
 
     @GetMapping("/getme")
     public Person getPerson() {
-        ResponseEntity<Person> responseEntity = restTemplate.getForEntity("http://localhost:9090/ext/get", Person.class);
+        ResponseEntity<Person> responseEntity = restTemplate.getForEntity("http://localhost:5000/ext/get", Person.class);
         System.out.println("Get Response on Client Side :"+responseEntity.getBody());
         return responseEntity.getBody();
     }
 
     @PostMapping("/postme")
     public Person save(@RequestBody Person person) {
-        ResponseEntity<Person> responseEntity = restTemplate.postForEntity("http://localhost:9090/ext/post", person, Person.class);
+        ResponseEntity<Person> responseEntity = restTemplate.postForEntity("http://localhost:5000/ext/post", person, Person.class);
         System.out.println("Post Response on Client Side :"+responseEntity.getBody());
         return responseEntity.getBody();
     }
